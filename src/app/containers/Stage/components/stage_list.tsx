@@ -9,9 +9,12 @@ interface IProps {
 }
 
 export const StageList: React.FC<IProps> = observer((props) => {
+    let list = props.users.sort((a,b)=> {return b.score-a.score})
+    let userList = list.map((user, i) => <StageItem user={user} num={user.top || i + 1} />)
+    
+    
     return <S.List>
-        {props.users.map((user, i) => <StageItem user={user} num={user.top || i + 1}/>
-        )}
+        {userList}
     </S.List>;
 });
 

@@ -110,7 +110,7 @@ const Stage = observer(function () {
             <S.Text>Ваш рейтинг</S.Text>
             <StageList users={[{...usersStore.user, score: stageStore.stage.score}]}/>
             <S.Text>Общий рейтинг</S.Text>
-            <StageList users={usersStore.users}/>
+            <StageList users={[...usersStore.users]}/>
         </S.Wrapper>
         <S.HiddenBottom ref={ref => {
             if (ref) bottomRef = ref;
