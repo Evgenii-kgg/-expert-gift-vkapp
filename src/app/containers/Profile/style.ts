@@ -68,11 +68,12 @@ export const WrapperUser = isMobile
     box-shadow: 0px 4px 4px rgba(15,0,43,0.25);
 `;
 
-export const Text = styled.div<{ bold?: boolean, bottom?: number, top?: number }>`
+export const Text = styled.div<{ bold?: boolean, bottom?: number, top?: number, color?: string }>`
     font-size: 14px;
     font-weight: ${(props) => props.bold ? 'bold' : '500'};
     margin-bottom: ${(props) => props.bottom || 3}px;
     margin-top: ${(props) => props.top || 3}px;
+    color: ${(props) => props.color || 'black'}; // изменение цвета активного уровня
 `;
 
 export const SliderText = styled.div`

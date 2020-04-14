@@ -16,6 +16,8 @@ const Profile = observer(function (props) {
     const user: IUser = useStore().usersStore.user;
     const stageStore: StageStoreType = useStore().stageStore;
 
+    console.log(stageStore.stage.score);
+   
     return (
         <S.Container>
             <Header screen={ScreenEnum.Profile} setScreen={screenStore.setScreen}/>
@@ -33,7 +35,7 @@ const Profile = observer(function (props) {
                 </S.WrapperUser>
                 <S.Main>
                     <S.Title>Система уровней</S.Title>
-                    <ListStages list_stages={stageStore.listStages}/>
+                    <ListStages list_stages={[...stageStore.listStages]} score={stageStore.stage.score}/>
                     {/*<S.Text top={10} bottom={10}>Подробное описание как заработать больше баллов</S.Text>*/}
                 </S.Main>
             </S.Wrapper>
