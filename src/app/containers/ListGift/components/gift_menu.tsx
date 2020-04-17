@@ -9,7 +9,7 @@ interface Props {
     repost: () => void
 }
 
-export const GiftMenu: React.FC<Props> = (props) => {
+export const GiftMenu: React.FC<Props> = React.memo((props) => {
 
     const repost = () => {
         props.repost();
@@ -20,6 +20,8 @@ export const GiftMenu: React.FC<Props> = (props) => {
     const down = () => {
         props.setMark(0);
     };
+    console.log(props);
+    
 
     return <S.WrapperScore>
         <S.Score>
@@ -41,5 +43,5 @@ export const GiftMenu: React.FC<Props> = (props) => {
             <S.Label>Не нравится</S.Label>
         </S.Score>
     </S.WrapperScore>;
-};
+});
 

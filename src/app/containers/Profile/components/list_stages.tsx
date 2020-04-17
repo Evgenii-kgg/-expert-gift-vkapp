@@ -12,24 +12,13 @@ type IColumnElem  = JSX.Element[]
 
 export const ListStages: React.FC<Props> = (props) => {
 
-    // if (acc.score < props.score >= currentStage.score ) {
-        //          return acc.col1.push(<S.Text bold color={'red'} key={currentStage.id}>{currentStage.name}</S.Text>)
-        //      } else {
-        //          acc.col1.push(<S.Text bold color={'black'} key={currentStage.id}>{currentStage.name}</S.Text>)
-        //     }
-
     const list = props.list_stages.reduce((acc:{col1:IColumnElem,col2:IColumnElem, score:number}, currentStage) => {
         
         let between = ((acc.score < props.score) && (props.score < currentStage.score)) ? 'green' : 'black'
         acc.col1.push(<S.Text bold color={between} key={currentStage.id}>{currentStage.name}</S.Text>)
-        
-
-        //acc.col1.push(<S.Text bold color={'red'} key={currentStage.id}>{currentStage.name}</S.Text>);
         acc.col2.push(<S.Text bold color={between}  key={currentStage.id}>  
             <span>{acc.score}</span> - <span>{currentStage.score}</span>
         </S.Text>);
-         console.log(acc.score);
-         console.log(currentStage.score);
         acc.score = currentStage.score
        
         return acc;

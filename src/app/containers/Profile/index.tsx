@@ -16,8 +16,6 @@ const Profile = observer(function (props) {
     const user: IUser = useStore().usersStore.user;
     const stageStore: StageStoreType = useStore().stageStore;
 
-    console.log(stageStore.stage.score);
-   
     return (
         <S.Container>
             <Header screen={ScreenEnum.Profile} setScreen={screenStore.setScreen}/>

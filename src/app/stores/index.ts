@@ -21,7 +21,7 @@ const rootStore = RootStore.create();
 
 //debug store
 onPatch(rootStore, patch => {
-    console.log(patch);
+    //console.log(patch);
 });
 
 makeInspectable(rootStore); // MST dev tools

@@ -25,15 +25,15 @@ export const Tab = styled.div<{ active?: boolean }>`
 `;
 
 export const Img = styled.img`
-    width: 76px;
+    width: 50px;
 `;
 
 export const ImgGiftsList = styled.img`
-    width: 60px;
+    width: 40px;
 `;
 
 export const Avatar = styled.img`
-    width: 86px;
+    width: 60px;
 `;
 
 export const Info = styled.div`
