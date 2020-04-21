@@ -1,4 +1,5 @@
 import { types } from 'mobx-state-tree';
+import history from 'app/core/components/history/history';
 
 export enum ScreenEnum {
   'MainPage',
@@ -19,3 +20,4 @@ const ScreenStore = types
   }));
 
 export default ScreenStore;
+
