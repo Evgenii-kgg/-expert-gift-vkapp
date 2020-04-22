@@ -1,5 +1,5 @@
 import { types } from 'mobx-state-tree';
-import history from 'app/core/components/history/history';
+//import { useHistory } from "react-router-dom";
 
 export enum ScreenEnum {
   'MainPage',

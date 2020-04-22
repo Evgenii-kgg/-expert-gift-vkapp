@@ -1,5 +1,10 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    useHistory,
+  } from "react-router-dom";
 
 import MainPage from 'app/containers/MainPage';
 import Stage from 'app/containers/Stage';
@@ -20,7 +25,11 @@ import { ModalStage } from 'app/core/components/ModalStage';
 import { StageModel } from 'app/stores/StageStore';
 import { IUser } from 'app/stores/UsersStore';
 
-import { Animated } from 'react-animated-css';
+import { createBrowserHistory } from 'history';
+const history = createBrowserHistory();
+
+//import {Animated} from "react-animated-css";
+
 
 type IInitialData = [
   Promise<{ data?: User }>,
@@ -35,6 +44,9 @@ interface User extends IUser {
 export const App = observer(() => {
   const store = useStore();
   const { screenStore, usersStore, giftStore, stageStore, loaderStore } = store;
+
+  let history = useHistory();
+
 
   useEffect(() => {
     vk_bridge.send('VKWebAppInit', {});
@@ -102,29 +114,19 @@ export const App = observer(() => {
 
   return (
     <>
-      <GlobalStyle />
-      <Animated
-        animationIn="lightSpeedIn"
-        animationOut="zoomOutDown"
-        animationInDuration={100}
-        animationOutDuration={100}
-        isVisible={true}
-      >
-        {/*     {screenStore.currentScreen === ScreenEnum.MainPage && <MainPage/>}
-                {screenStore.currentScreen === ScreenEnum.Profile && <Profile/>}
-                {screenStore.currentScreen === ScreenEnum.Stage && <Stage/>}
-                {screenStore.currentScreen === ScreenEnum.ListGift && <ListGift/>} */}
-
-        <Router>
-          <Switch>
-            <Route exact path="/MainPage" component={MainPage} />
-            <Route path="/Profile" component={Profile} />
-            <Route path="/Stage" component={Stage} />
-            <Route path="/ListGift" component={ListGift} />
-          </Switch>
-        </Router>
-      </Animated>
-
+      <GlobalStyle />>
+      {/* {screenStore.currentScreen === ScreenEnum.MainPage && <MainPage />}
+      {screenStore.currentScreen === ScreenEnum.Profile && <Profile />}
+      {screenStore.currentScreen === ScreenEnum.Stage && <Stage />}
+      {screenStore.currentScreen === ScreenEnum.ListGift && <ListGift />} */}
+      <Router >
+        <Switch>
+          <Route exact path="/" component={MainPage} />
+          <Route path="/Profile" component={Profile} />
+          <Route path="/Stage" component={Stage} />
+          <Route path="/ListGift" component={ListGift} />
+        </Switch>
+      </Router>
       <Alert />
       <Loader control />
       <ModalStage />

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
+
 import * as S from './style';
 import crown from '@img/crown.svg';
 import gifts_list from '@img/gifts_list.svg';
@@ -8,8 +10,6 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from 'app/context/store';
 import { StageStoreType } from 'app/stores/StageStore';
 
-import { BrowserRouter as Router, Link } from 'react-router-dom';
-
 interface Props {
   screen: ScreenEnum;
   setScreen: (screen: ScreenEnum) => void;
@@ -17,34 +17,43 @@ interface Props {
 
 const Header: React.FC<Props> = observer((props) => {
   const stageStore: StageStoreType = useStore().stageStore;
-  console.log(props);
+
+  let history = useHistory();
+
+  function handleClick1() {
+    history.push('/ListGift');
+  }
+  function handleClick2() {
+    history.push('/Stage');
+  }
+  function handleClick3() {
+    history.push('/Profile');
+  }
+
   return (
     <S.Container>
       <S.Info>
         <S.Stage>{stageStore.stage.name}</S.Stage>
         <S.Score>{stageStore.stage.score}</S.Score>
       </S.Info>
-      <Link to="/ListGift">
-        <S.Tab active={props.screen === ScreenEnum.ListGift}>
-          <S.ImgGiftsList src={gifts_list} />
-        </S.Tab>
-      </Link>
-      <Link to="/Stage">
-        <S.Tab
-          active={props.screen === ScreenEnum.Stage}
-          onClick={() => props.setScreen(ScreenEnum.Stage)}
-        >
-          <S.Img src={crown} />
-        </S.Tab>
-      </Link>
-      <Link to="/Profile">
-        <S.Tab
-          active={props.screen === ScreenEnum.Profile}
-          onClick={() => props.setScreen(ScreenEnum.Profile)}
-        >
-          <S.Avatar src={avatar} />
-        </S.Tab>
-      </Link>
+      <S.Tab
+        //active={props.screen === ScreenEnum.ListGift}
+        onClick={handleClick1}
+      >
+        <S.ImgGiftsList src={gifts_list} />
+      </S.Tab>
+      <S.Tab
+        //active={props.screen === ScreenEnum.Stage}
+        onClick={handleClick2}
+      >
+        <S.Img src={crown} />
+      </S.Tab>
+      <S.Tab
+        //active={props.screen === ScreenEnum.Profile}
+        onClick={handleClick3}
+      >
+        <S.Avatar src={avatar} />
+      </S.Tab>
     </S.Container>
   );
 });
