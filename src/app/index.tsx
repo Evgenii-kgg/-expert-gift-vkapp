@@ -3,7 +3,6 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    useHistory,
   } from "react-router-dom";
 
 import MainPage from 'app/containers/MainPage';
@@ -45,7 +44,7 @@ export const App = observer(() => {
   const store = useStore();
   const { screenStore, usersStore, giftStore, stageStore, loaderStore } = store;
 
-  let history = useHistory();
+  //let history = useHistory();
 
 
   useEffect(() => {
@@ -121,8 +120,8 @@ export const App = observer(() => {
       {screenStore.currentScreen === ScreenEnum.ListGift && <ListGift />} */}
       <Router >
         <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Route path="/Profile" component={Profile} />
+          <Route path="/MainPage" component={MainPage} />
+          <Route exact path="/" component={Profile} />
           <Route path="/Stage" component={Stage} />
           <Route path="/ListGift" component={ListGift} />
         </Switch>

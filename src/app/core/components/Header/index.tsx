@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Router, Link, useHistory } from 'react-router-dom';
 
 import * as S from './style';
 import crown from '@img/crown.svg';
