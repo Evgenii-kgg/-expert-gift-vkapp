@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {useStore} from 'app/context/store';
 import {observer} from 'mobx-react-lite';
-import {ScreenEnum} from "app/stores/ScreenStore";
+import Slider from "react-slick";
+
 import * as S from './style';
 import Header from "app/core/components/Header";
-import Slider from "react-slick";
 import {GiftStoreType, GiftType} from "app/stores/GiftStore";
 import {GiftItem} from "app/containers/ListGift/components/gift_item";
 import {API} from "app/core/services/api";
@@ -14,16 +14,20 @@ import {vk_bridge} from "app/core/services/vk_bridge";
 import {StageStoreType} from "app/stores/StageStore";
 import {isMobile} from "app/core/helpers/detect_mobile";
 
-const ListGift = observer(function (props) {
+import { toJS } from 'mobx';
 
+const ListGift = observer(function (props) {
     const store = useStore();
-    const screenStore = store.screenStore;
     const giftStore: GiftStoreType = store.giftStore;
     const stageStore: StageStoreType = store.stageStore;
 
     const [mark, toggleMark] = useState<0 | 1>();
     const [currentGift, toggleGift] = useState<GiftType>(giftStore.gifts[0]);
     const [loadAttachGifts, setLoadAttachGifts] = useState<boolean>(false);
+
+    /* if(giftStore.gifts.length === 0){
+        return <div>asd</div>;
+    } */
 
     let slider: any = null;
 
@@ -68,7 +72,7 @@ const ListGift = observer(function (props) {
     };
 
     const repost = async () => {
-        const response = await vk_bridge.send("VKWebAppShowWallPostBox", {"message": `Эксперт подарков! Идея: ${currentGift.title}! https://vk.com/siberia_handmade`});
+        const response = await vk_bridge.send("VKWebAppShowWallPostBox", {"message": `Эксперт подарков! Идея: ${currentGift?.title || ''}! https://vk.com/siberia_handmade`});
         if (response.status) {
             addScoreRepost(currentGift);
         }
@@ -108,7 +112,13 @@ const ListGift = observer(function (props) {
         setLoadAttachGifts(false);
     };
 
+  /*   console.log(1,toJS(giftStore.gifts) );
+    console.log(2, currentGift); */
+    
+
     const list_gift = giftStore.gifts.map((gift) => {
+        console.log(2);
+        
         return <GiftItem key={gift.id}
                          gift={gift}/>;
     });
@@ -116,9 +126,9 @@ const ListGift = observer(function (props) {
 
     return (
         <S.Container>
-            <Header screen={ScreenEnum.ListGift} setScreen={screenStore.setScreen}/>
+            {/* <Header screen={ScreenEnum.ListGift} setScreen={screenStore.setScreen}/> */}
             <S.Main>
-                <S.Title>{currentGift.title}</S.Title>
+                <S.Title>{currentGift?.title || ''}</S.Title>
                 <S.SliderContainer>
                     {/*
                     // @ts-ignore */}

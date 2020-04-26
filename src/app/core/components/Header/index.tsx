@@ -5,29 +5,29 @@ import * as S from './style';
 import crown from '@img/crown.svg';
 import gifts_list from '@img/gifts_list.svg';
 import avatar from '@img/avatar.svg';
-import { ScreenEnum } from 'app/stores/ScreenStore';
+//import { ScreenEnum } from 'app/stores/ScreenStore';
 import { observer } from 'mobx-react-lite';
 import { useStore } from 'app/context/store';
 import { StageStoreType } from 'app/stores/StageStore';
 
-interface Props {
+/* interface Props {
   screen: ScreenEnum;
   setScreen: (screen: ScreenEnum) => void;
-}
+} */
 
-const Header: React.FC<Props> = observer((props) => {
+const Header = observer(() => {
   const stageStore: StageStoreType = useStore().stageStore;
 
-  let history = useHistory();
+ // let history = useHistory();
 
-  function handleClick1() {
-    history.push('/ListGift');
+  function handleClickListGift() {
+   // history.push('/ListGift');
   }
-  function handleClick2() {
-    history.push('/Stage');
+  function handleClickStage() {
+   // history.push('/Stage');
   }
-  function handleClick3() {
-    history.push('/Profile');
+  function handleClickProfile() {
+  //  history.push('/Profile');
   }
 
   return (
@@ -38,19 +38,19 @@ const Header: React.FC<Props> = observer((props) => {
       </S.Info>
       <S.Tab
         //active={props.screen === ScreenEnum.ListGift}
-        onClick={handleClick1}
+       // onClick={handleClickListGift}
       >
         <S.ImgGiftsList src={gifts_list} />
       </S.Tab>
       <S.Tab
         //active={props.screen === ScreenEnum.Stage}
-        onClick={handleClick2}
+        ///onClick={handleClickStage}
       >
         <S.Img src={crown} />
       </S.Tab>
       <S.Tab
         //active={props.screen === ScreenEnum.Profile}
-        onClick={handleClick3}
+        //onClick={handleClickProfile}
       >
         <S.Avatar src={avatar} />
       </S.Tab>

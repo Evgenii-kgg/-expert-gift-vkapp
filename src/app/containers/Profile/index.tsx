@@ -1,7 +1,7 @@
 import React from 'react';
 import {useStore} from '../../context/store';
 import {observer} from 'mobx-react-lite';
-import {ScreenEnum} from "app/stores/ScreenStore";
+//import {ScreenEnum} from "app/stores/ScreenStore";
 import * as S from './style';
 import avatar from '@img/avatar.svg';
 import Header from "app/core/components/Header";
@@ -12,13 +12,13 @@ import {StageStoreType} from "app/stores/StageStore";
 
 
 const Profile = observer(function (props) {
-    const screenStore = useStore().screenStore;
+    //const screenStore = useStore().screenStore;
     const user: IUser = useStore().usersStore.user;
     const stageStore: StageStoreType = useStore().stageStore;
 
     return (
         <S.Container>
-            <Header screen={ScreenEnum.Profile} setScreen={screenStore.setScreen}/>
+            {/* <Header screen={ScreenEnum.Profile} setScreen={screenStore.setScreen}/> */}
             <S.Wrapper>
                 <S.WrapperUser>
                     <S.UserInfo>

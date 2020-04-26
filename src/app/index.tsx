@@ -12,7 +12,7 @@ import { useStore } from 'app/context/store';
 import { GlobalStyle } from './global_styles';
 import ListGift from 'app/containers/ListGift';
 import Profile from 'app/containers/Profile';
-import { ScreenEnum } from 'app/stores/ScreenStore';
+//import { ScreenEnum } from 'app/stores/ScreenStore';
 import { observer } from 'mobx-react-lite';
 import { customAlert } from 'app/core/components/alert';
 import { GiftType } from 'app/stores/GiftStore';
@@ -23,6 +23,7 @@ import { Loader } from 'app/core/components/loader/loader';
 import { ModalStage } from 'app/core/components/ModalStage';
 import { StageModel } from 'app/stores/StageStore';
 import { IUser } from 'app/stores/UsersStore';
+import Header from 'app/core/components/Header'
 
 import { createBrowserHistory } from 'history';
 const history = createBrowserHistory();
@@ -42,9 +43,7 @@ interface User extends IUser {
 
 export const App = observer(() => {
   const store = useStore();
-  const { screenStore, usersStore, giftStore, stageStore, loaderStore } = store;
-
-  //let history = useHistory();
+  const { usersStore, giftStore, stageStore, loaderStore } = store;
 
 
   useEffect(() => {
@@ -113,15 +112,16 @@ export const App = observer(() => {
 
   return (
     <>
-      <GlobalStyle />>
+      <GlobalStyle />
       {/* {screenStore.currentScreen === ScreenEnum.MainPage && <MainPage />}
       {screenStore.currentScreen === ScreenEnum.Profile && <Profile />}
       {screenStore.currentScreen === ScreenEnum.Stage && <Stage />}
       {screenStore.currentScreen === ScreenEnum.ListGift && <ListGift />} */}
+      <Header/>
       <Router >
         <Switch>
-          <Route path="/MainPage" component={MainPage} />
-          <Route exact path="/" component={Profile} />
+          <Route exact path="/" component={MainPage} />
+          <Route path="/Profile" component={Profile} />
           <Route path="/Stage" component={Stage} />
           <Route path="/ListGift" component={ListGift} />
         </Switch>

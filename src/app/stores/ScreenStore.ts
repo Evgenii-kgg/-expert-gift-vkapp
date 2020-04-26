@@ -1,4 +1,4 @@
-import { types } from 'mobx-state-tree';
+/* import { types } from 'mobx-state-tree';
 //import { useHistory } from "react-router-dom";
 
 export enum ScreenEnum {
@@ -21,3 +21,4 @@ const ScreenStore = types
 
 export default ScreenStore;
 
+ */
