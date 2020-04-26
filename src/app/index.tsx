@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route,
   } from "react-router-dom";
@@ -109,6 +109,7 @@ export const App = observer(() => {
       customAlert.danger('Не удалось получить список подарков!');
     }
   };
+  console.log(123, process.env.PUBLIC_URL)
 
   return (
     <>

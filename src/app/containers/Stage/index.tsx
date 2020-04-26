@@ -104,6 +104,8 @@ const Stage = observer(function () {
         }
     };
 
+    
+
     return <S.Container>
         {/* <Header screen={ScreenEnum.Stage} setScreen={setScreen}/> */}
         <S.Wrapper>

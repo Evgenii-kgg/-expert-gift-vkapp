@@ -1,13 +1,13 @@
 {
   "name": "typescript-react-mobx-boilerplate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "A frontend boilerplate with React, MobX and Typescript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development --hot --progress --colors --port 3000 --open",
-    "build": "NODE_ENV=production webpack -p --progress --colors",
+    "start": "set NODE_ENV=devolop && webpack-dev-server --mode development --hot --progress --colors --port 3000 --open",
+    "build": "set NODE_ENV=production && webpack -p --progress --colors",
     "deploy": "npm run build && git add build && git commit -m \"deploy gh-pages\" && git subtree push --prefix build origin gh-pages",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,css}\""
   },

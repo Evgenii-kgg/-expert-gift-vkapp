@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Link, useHistory } from 'react-router-dom';
+import { Router, Link, withRouter } from 'react-router-dom';
 
 import * as S from './style';
 import crown from '@img/crown.svg';
@@ -10,25 +10,24 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from 'app/context/store';
 import { StageStoreType } from 'app/stores/StageStore';
 
-/* interface Props {
-  screen: ScreenEnum;
-  setScreen: (screen: ScreenEnum) => void;
-} */
+interface Props {
+  witRouter: any;
+}
 
-const Header = observer(() => {
+const Header = observer((props) => {
   const stageStore: StageStoreType = useStore().stageStore;
 
- // let history = useHistory();
+  const handleClickListGift = () => {
+    props.history.push('/ListGift');
+  };
 
-  function handleClickListGift() {
-   // history.push('/ListGift');
-  }
-  function handleClickStage() {
-   // history.push('/Stage');
-  }
-  function handleClickProfile() {
-  //  history.push('/Profile');
-  }
+  const handleClickStage = () => {
+    props.history.push('/Stage');
+  };
+
+  const handleClickProfile = () => {
+    props.history.push('/Profile');
+  };
 
   return (
     <S.Container>
@@ -37,20 +36,20 @@ const Header = observer(() => {
         <S.Score>{stageStore.stage.score}</S.Score>
       </S.Info>
       <S.Tab
-        //active={props.screen === ScreenEnum.ListGift}
-       // onClick={handleClickListGift}
+      //active={props.screen === ScreenEnum.ListGift}
+      // onClick={handleClickListGift}
       >
         <S.ImgGiftsList src={gifts_list} />
       </S.Tab>
       <S.Tab
-        //active={props.screen === ScreenEnum.Stage}
-        ///onClick={handleClickStage}
+      //active={props.screen === ScreenEnum.Stage}
+      ///onClick={handleClickStage}
       >
         <S.Img src={crown} />
       </S.Tab>
       <S.Tab
-        //active={props.screen === ScreenEnum.Profile}
-        //onClick={handleClickProfile}
+      //active={props.screen === ScreenEnum.Profile}
+      //onClick={handleClickProfile}
       >
         <S.Avatar src={avatar} />
       </S.Tab>
@@ -58,4 +57,4 @@ const Header = observer(() => {
   );
 });
 
-export default Header;
+export default withRouter(Header);
