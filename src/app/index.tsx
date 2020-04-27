@@ -115,6 +115,7 @@ export const App = observer(() => {
       {screenStore.currentScreen === ScreenEnum.Profile && <Profile />}
       {screenStore.currentScreen === ScreenEnum.Stage && <Stage />}
       {screenStore.currentScreen === ScreenEnum.ListGift && <ListGift />} */}
+      
 
 <Router>
         <Header />
