@@ -63,6 +63,7 @@
     "react-animated-css": "^1.2.1",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.1.2",
+    "react-router-transition": "^2.0.0",
     "react-slick": "^0.25.2",
     "rxjs": "^6.5.4",
     "slick-carousel": "^1.8.1",

@@ -1,9 +1,5 @@
 import React, { useEffect } from 'react';
-import {
-    HashRouter as Router,
-    Switch,
-    Route,
-  } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 import MainPage from 'app/containers/MainPage';
 import Stage from 'app/containers/Stage';
@@ -23,13 +19,15 @@ import { Loader } from 'app/core/components/loader/loader';
 import { ModalStage } from 'app/core/components/ModalStage';
 import { StageModel } from 'app/stores/StageStore';
 import { IUser } from 'app/stores/UsersStore';
-import Header from 'app/core/components/Header'
+import Header from 'app/core/components/Header';
 
-import { createBrowserHistory } from 'history';
-const history = createBrowserHistory();
+// @ts-ignore 
+import { AnimatedSwitch } from 'react-router-transition'
+
+/* import { createBrowserHistory } from 'history';
+const history = createBrowserHistory(); */
 
 //import {Animated} from "react-animated-css";
-
 
 type IInitialData = [
   Promise<{ data?: User }>,
@@ -44,7 +42,6 @@ interface User extends IUser {
 export const App = observer(() => {
   const store = useStore();
   const { usersStore, giftStore, stageStore, loaderStore } = store;
-
 
   useEffect(() => {
     vk_bridge.send('VKWebAppInit', {});
@@ -109,7 +106,7 @@ export const App = observer(() => {
       customAlert.danger('Не удалось получить список подарков!');
     }
   };
-  console.log(123, process.env.PUBLIC_URL)
+  console.log(123, process.env.PUBLIC_URL);
 
   return (
     <>
@@ -118,14 +115,20 @@ export const App = observer(() => {
       {screenStore.currentScreen === ScreenEnum.Profile && <Profile />}
       {screenStore.currentScreen === ScreenEnum.Stage && <Stage />}
       {screenStore.currentScreen === ScreenEnum.ListGift && <ListGift />} */}
-      <Header/>
-      <Router >
-        <Switch>
+
+<Router>
+        <Header />
+        <AnimatedSwitch
+          atEnter={{ opacity: 0 }}
+          atLeave={{ opacity: 0 }}
+          atActive={{ opacity: 1 }}
+          className="switch-wrapper"
+        >
           <Route exact path="/" component={MainPage} />
           <Route path="/Profile" component={Profile} />
           <Route path="/Stage" component={Stage} />
           <Route path="/ListGift" component={ListGift} />
-        </Switch>
+        </AnimatedSwitch>
       </Router>
       <Alert />
       <Loader control />

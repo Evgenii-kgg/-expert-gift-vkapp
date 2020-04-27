@@ -11,22 +11,23 @@ import { useStore } from 'app/context/store';
 import { StageStoreType } from 'app/stores/StageStore';
 
 interface Props {
-  witRouter: any;
+  history: any;
+  location: any;
 }
 
-const Header = observer((props) => {
+const Header = observer(({ history, location }: Props) => {
   const stageStore: StageStoreType = useStore().stageStore;
 
   const handleClickListGift = () => {
-    props.history.push('/ListGift');
+    history.push('/ListGift');
   };
 
   const handleClickStage = () => {
-    props.history.push('/Stage');
+    history.push('/Stage');
   };
 
   const handleClickProfile = () => {
-    props.history.push('/Profile');
+    history.push('/Profile');
   };
 
   return (
@@ -36,20 +37,17 @@ const Header = observer((props) => {
         <S.Score>{stageStore.stage.score}</S.Score>
       </S.Info>
       <S.Tab
-      //active={props.screen === ScreenEnum.ListGift}
-      // onClick={handleClickListGift}
+        active={location.pathname === '/ListGift'}
+        onClick={handleClickListGift}
       >
         <S.ImgGiftsList src={gifts_list} />
       </S.Tab>
-      <S.Tab
-      //active={props.screen === ScreenEnum.Stage}
-      ///onClick={handleClickStage}
-      >
+      <S.Tab active={location.pathname === '/Stage'} onClick={handleClickStage}>
         <S.Img src={crown} />
       </S.Tab>
       <S.Tab
-      //active={props.screen === ScreenEnum.Profile}
-      //onClick={handleClickProfile}
+        active={location.pathname === '/Profile'}
+        onClick={handleClickProfile}
       >
         <S.Avatar src={avatar} />
       </S.Tab>
