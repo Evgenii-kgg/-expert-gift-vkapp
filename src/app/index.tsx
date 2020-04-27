@@ -21,8 +21,8 @@ import { StageModel } from 'app/stores/StageStore';
 import { IUser } from 'app/stores/UsersStore';
 import Header from 'app/core/components/Header';
 
-// @ts-ignore 
-import { AnimatedSwitch } from 'react-router-transition'
+// @ts-ignore
+import { AnimatedSwitch } from 'react-router-transition';
 
 /* import { createBrowserHistory } from 'history';
 const history = createBrowserHistory(); */
@@ -115,9 +115,9 @@ export const App = observer(() => {
       {screenStore.currentScreen === ScreenEnum.Profile && <Profile />}
       {screenStore.currentScreen === ScreenEnum.Stage && <Stage />}
       {screenStore.currentScreen === ScreenEnum.ListGift && <ListGift />} */}
-      
+      {/* измененил роутинг и добавил анимацию  */}
 
-<Router>
+      <Router>
         <Header />
         <AnimatedSwitch
           atEnter={{ opacity: 0 }}
