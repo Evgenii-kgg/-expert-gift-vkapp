@@ -20,7 +20,7 @@ export const GiftMenu: React.FC<Props> = React.memo((props) => {
     const down = () => {
         props.setMark(0);
     };
-    console.log(props);
+    //console.log(props);
     
 
     return <S.WrapperScore>

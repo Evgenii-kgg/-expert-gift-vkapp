@@ -7,7 +7,6 @@ interface Props {
 }
 
 export const GiftItem: React.FC<Props> = React.memo((props) => {
-    console.log(props);
     
     return <S.Wrapper key={props.gift.id}>
         <S.SliderItem>

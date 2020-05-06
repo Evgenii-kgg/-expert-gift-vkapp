@@ -20,6 +20,7 @@ export const Container = styled.div<{ bottom: string, color: string }>`
     z-index: 10000;
     padding: 10px;
     text-align: center;
+    cursor: pointer;
    @media (max-width: 460px) {
         margin: 20px 0;
     }

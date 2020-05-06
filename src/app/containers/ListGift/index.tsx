@@ -25,10 +25,7 @@ const ListGift = observer(function (props) {
     const [currentGift, toggleGift] = useState<GiftType>(giftStore.gifts[0]);
     const [loadAttachGifts, setLoadAttachGifts] = useState<boolean>(false);
 
-    /* if(giftStore.gifts.length === 0){
-        return <div>asd</div>;
-    } */
-
+   
     let slider: any = null;
 
     let settings = {
@@ -117,7 +114,6 @@ const ListGift = observer(function (props) {
     
 
     const list_gift = giftStore.gifts.map((gift) => {
-        console.log(2);
         
         return <GiftItem key={gift.id}
                          gift={gift}/>;

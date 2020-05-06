@@ -83,11 +83,7 @@ export const App = observer(() => {
   };
 
   const setListStages = (stages?: StageModel[]) => {
-    if (stages && stages.length > 0) {
       stageStore.setListStages(stages);
-    } else {
-      customAlert.danger('Не удалось получить список рейтинга!');
-    }
   };
 
   const setUserData = (user?: User) => {
@@ -100,13 +96,8 @@ export const App = observer(() => {
   };
 
   const setNewGifts = (gifts?: GiftType[]) => {
-    if (gifts && gifts.length > 0) {
-      giftStore.setGifts(gifts);
-    } else {
-      customAlert.danger('Не удалось получить список подарков!');
-    }
+    giftStore.setGifts(gifts);
   };
-  console.log(123, process.env.PUBLIC_URL);
 
   return (
     <>
@@ -115,20 +106,24 @@ export const App = observer(() => {
       {screenStore.currentScreen === ScreenEnum.Profile && <Profile />}
       {screenStore.currentScreen === ScreenEnum.Stage && <Stage />}
       {screenStore.currentScreen === ScreenEnum.ListGift && <ListGift />} */}
-      {/* измененил роутинг и добавил анимацию  */}
+      {/* измененил роутинг и добавил анимацию , билд  */}
 
       <Router>
-        <Header />
+        
         <AnimatedSwitch
           atEnter={{ opacity: 0 }}
           atLeave={{ opacity: 0 }}
           atActive={{ opacity: 1 }}
           className="switch-wrapper"
         >
+          
           <Route exact path="/" component={MainPage} />
+          <>
+          <Header/>
           <Route path="/Profile" component={Profile} />
           <Route path="/Stage" component={Stage} />
           <Route path="/ListGift" component={ListGift} />
+          </>
         </AnimatedSwitch>
       </Router>
       <Alert />
@@ -137,3 +132,10 @@ export const App = observer(() => {
     </>
   );
 });
+
+{/* <ConnectedRouter history={history}>
+  <Switch>
+    <Route path="/dashboard" render={props => <Layout><Dashboard {...props} /></Layout>} />
+    <Route path="/login" component={Login} />
+  </Switch>
+</ConnectedRouter> */}

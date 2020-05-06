@@ -22,6 +22,7 @@ export const Tab = styled.div<{ active?: boolean }>`
     height: 15vh;
     ${({active}) => active && 'background: #ECE6F5;'};
     text-align: center;
+    cursor: pointer;
 `;
 
 export const Img = styled.img`
