@@ -25,10 +25,10 @@ export const GiftMenu: React.FC<Props> = React.memo((props) => {
 
     return <S.WrapperScore>
         <S.Score>
-            <S.CircleLike onClick={up}>
-                <S.Like src={like_white}/>
-            </S.CircleLike>
-            <S.Label>Нравится</S.Label>
+            <S.CircleDislike onClick={down}>
+                <S.Like src={dislike_white}/>
+            </S.CircleDislike>
+            <S.Label>Не нравится</S.Label>
         </S.Score>
         <S.Score>
             <S.CircleRepost onClick={repost}>
@@ -37,10 +37,10 @@ export const GiftMenu: React.FC<Props> = React.memo((props) => {
             <S.Label>Хочу себе</S.Label>
         </S.Score>
         <S.Score>
-            <S.CircleDislike onClick={down}>
-                <S.Like src={dislike_white}/>
-            </S.CircleDislike>
-            <S.Label>Не нравится</S.Label>
+            <S.CircleLike onClick={up}>
+                <S.Like src={like_white}/>
+            </S.CircleLike>
+            <S.Label>Нравится</S.Label>
         </S.Score>
     </S.WrapperScore>;
 });

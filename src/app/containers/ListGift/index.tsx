@@ -132,7 +132,7 @@ const ListGift = observer(function (props) {
                         {list_gift}
                     </Slider>
                 </S.SliderContainer>
-                <GiftMenu setMark={setMark} repost={repost}/>
+                <GiftMenu setMark={setMark} repost={repost} />
             </S.Main>
         </S.Container>
     );

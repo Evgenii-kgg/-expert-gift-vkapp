@@ -13,8 +13,6 @@ export const ModalStage: React.FC = observer((props) => {
     let wrap: any;
 
     const store: RootStoreType = useStore();
-   // const stageStore: StageStoreType = useStore().stageStore;
-   // const [currentGift, toggleGift] = useState<GiftType>(giftStore.gifts[0]);
 
 
     const stageStore: StageStoreType = store.stageStore;
@@ -24,6 +22,7 @@ export const ModalStage: React.FC = observer((props) => {
         /* if (response.status) {
             addScoreRepost(currentGift);
         } */
+        console.log("всё работает");
     };
 
     const outSideClick = (e: any) => {
@@ -41,7 +40,7 @@ export const ModalStage: React.FC = observer((props) => {
             <S.StageName>{stageStore.stage.name}</S.StageName>
             <S.Title>Поздравляем!</S.Title>
             <S.Text>Вы достигли нового ранга</S.Text>
-            <S.Button onClick={repost}>Круто, рассказать друзьям!</S.Button>
+            <S.Button onClick={() =>repost()}>Круто, рассказать друзьям!</S.Button>
         </S.Wrapper>
     </S.Container>;
 });
