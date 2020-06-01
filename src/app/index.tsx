@@ -83,7 +83,7 @@ export const App = observer(() => {
   };
 
   const setListStages = (stages?: StageModel[]) => {
-      stageStore.setListStages(stages);
+    stageStore.setListStages(stages);
   };
 
   const setUserData = (user?: User) => {
@@ -102,27 +102,19 @@ export const App = observer(() => {
   return (
     <>
       <GlobalStyle />
-      {/* {screenStore.currentScreen === ScreenEnum.MainPage && <MainPage />}
-      {screenStore.currentScreen === ScreenEnum.Profile && <Profile />}
-      {screenStore.currentScreen === ScreenEnum.Stage && <Stage />}
-      {screenStore.currentScreen === ScreenEnum.ListGift && <ListGift />} */}
-      {/* измененил роутинг и добавил анимацию , билд  */}
-
       <Router>
-        
         <AnimatedSwitch
           atEnter={{ opacity: 0 }}
           atLeave={{ opacity: 0 }}
           atActive={{ opacity: 1 }}
           className="switch-wrapper"
         >
-          
           <Route exact path="/" component={MainPage} />
           <>
-          <Header/>
-          <Route path="/Profile" component={Profile} />
-          <Route path="/Stage" component={Stage} />
-          <Route path="/ListGift" component={ListGift} />
+            <Header />
+            <Route path="/Profile" component={Profile} />
+            <Route path="/Stage" component={Stage} />
+            <Route path="/ListGift" component={ListGift} />
           </>
         </AnimatedSwitch>
       </Router>
@@ -132,10 +124,3 @@ export const App = observer(() => {
     </>
   );
 });
-
-{/* <ConnectedRouter history={history}>
-  <Switch>
-    <Route path="/dashboard" render={props => <Layout><Dashboard {...props} /></Layout>} />
-    <Route path="/login" component={Login} />
-  </Switch>
-</ConnectedRouter> */}

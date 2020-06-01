@@ -20,7 +20,9 @@ export const Main = styled.div`
 export const SliderContainer = styled.div`
   min-width: 360px;
   width: 100%;
-  height: 100%;
+  // height: 100%;
+  position: absolute;
+  bottom: 0;
   & .slick-next {
     right: 0;
   }
@@ -37,7 +39,6 @@ export const Wrapper = styled.div`
 export const ImgGift = isMobile
   ? styled.img`
       margin: 0 auto;
-      border-radius: 10px;
       max-width: 100%;
       max-height: 100%;
       position: absolute;
@@ -47,11 +48,8 @@ export const ImgGift = isMobile
     `
   : styled.img`
       height: 100%;
-      border-radius: 10px;
       margin: 0 auto;
       max-width: 97%;
-      position: absolute;
-      border-radius: 10px;
       position: absolute;
       left: 50%;
       top: 50%;
@@ -103,7 +101,7 @@ export const WrapperScore = styled.div`
   transform: translate(-50%, 50%);
   left: 50%;
   min-width: 340px;
-  bottom: 36px;
+  bottom: 46px;
 `;
 
 export const Score = styled.div`
@@ -116,7 +114,6 @@ export const Score = styled.div`
 export const SliderItem = isMobile
   ? styled.div<{ src?: string }>`
       background: url(${(props) => props.src || '#C4C4C4'});
-      border-radius: 10px;
       height: 75vh;
       margin: 0 3px;
       display: flex;
@@ -124,7 +121,6 @@ export const SliderItem = isMobile
     `
   : styled.div<{ src?: string }>`
       background: url(${(props) => props.src || '#C4C4C4'});
-      border-radius: 10px;
       height: 75vh;
       margin: 0 13px;
       filter: blur(50px);
@@ -140,6 +136,3 @@ export const Label = styled.div`
   margin-top: 4px;
 `;
 
-/* background-position: center;
-background-repeat: no-repeat;
-background-size: cover; */
