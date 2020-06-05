@@ -2,6 +2,8 @@ import {cast, Instance, types} from 'mobx-state-tree';
 import stage1 from "@img/stage1.png";
 import stage2 from "@img/stage2.png";
 import stage from "@img/stage_modal.png";
+import { customAlert } from 'app/core/components/alert';
+
 
 export enum StageImageEnum {
     'one' = stage1, 'two' = stage2, 'expert' = stage
@@ -37,8 +39,12 @@ const StageStore = types
         }
     }))
     .actions(self => ({
-        setListStages(listStages: StageModel[]) {
+        setListStages(listStages?: StageModel[]) {
+            if (listStages && listStages.length > 0) {
             self.listStages = cast(listStages);
+        } else {
+            customAlert.danger('Не удалось получить список рейтинга!');
+          }
         },
         toggleModalStage(show: boolean) {
             self.showModalStage = show;

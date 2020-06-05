@@ -1,6 +1,6 @@
 import * as React from "react";
 import {useEffect} from "react";
-import {ScreenEnum} from "app/stores/ScreenStore";
+//import {ScreenEnum} from "app/stores/ScreenStore";
 import {useStore} from "app/context/store";
 import {observer} from "mobx-react-lite";
 import * as S from "./style";
@@ -39,7 +39,7 @@ interface IRatingUsers {
 
 const Stage = observer(function () {
 
-    const {screenStore: {setScreen}} = useStore();
+    //const {screenStore: {setScreen}} = useStore();
     const usersStore: IUsers = useStore().usersStore;
     const stageStore: StageStoreType = useStore().stageStore;
     const loaderStore: LoaderStoreType = useStore().loaderStore;
@@ -104,8 +104,10 @@ const Stage = observer(function () {
         }
     };
 
+    
+
     return <S.Container>
-        <Header screen={ScreenEnum.Stage} setScreen={setScreen}/>
+        {/* <Header screen={ScreenEnum.Stage} setScreen={setScreen}/> */}
         <S.Wrapper>
             <S.Text>Ваш рейтинг</S.Text>
             <StageList users={[{...usersStore.user, score: stageStore.stage.score}]}/>

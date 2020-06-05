@@ -13,7 +13,7 @@ export const mock_bridge = {
                                     first_name: "Евгений",
                                     last_name: "Глечиков",
                                     photo_200: "https://sun9-70.userapi.com/c639127/v639127225/8ecf/ecFoax3YGYk.jpg?ava=1",
-                                    score: 232
+                                    score: 0
                                 } :
                                 {
                                     id: 12666859,
@@ -32,6 +32,7 @@ export const mock_bridge = {
                         first_name: "Тест",
                         last_name: "Тестов",
                         photo_200: "https://sun9-70.userapi.com/c639127/v639127225/8ecf/ecFoax3YGYk.jpg?ava=1",
+                        score: 14
                     }
                 };
             default:

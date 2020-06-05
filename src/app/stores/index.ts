@@ -1,14 +1,14 @@
 import {Instance, onPatch, types} from 'mobx-state-tree';
 import LoaderStore from './LoaderStore';
 import StageStore from './StageStore';
-import ScreenStore from './ScreenStore';
+//import ScreenStore from './ScreenStore';
 import makeInspectable from "mobx-devtools-mst"
 import UsersStore from "app/stores/UsersStore";
 import GiftStore from "app/stores/GiftStore";
 
 const RootStore = types
     .model('RootStore', {
-        screenStore: types.optional(ScreenStore, {}),
+        //screenStore: types.optional(ScreenStore, {}),
         stageStore: types.optional(StageStore, {}),
         loaderStore: types.optional(LoaderStore, {}),
         usersStore: types.optional(UsersStore, {}),
