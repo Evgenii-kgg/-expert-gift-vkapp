@@ -25,19 +25,19 @@ const ListGift = observer(function (props) {
     const [currentGift, toggleGift] = useState<GiftType>(giftStore.gifts[0]);
     const [loadAttachGifts, setLoadAttachGifts] = useState<boolean>(false);
 
-   
     let slider: any = null;
 
     let settings = {
         dots: false,
-        speed: 800,
+        speed: 1500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        lazyLoad: "ondemand",
+        lazyLoad: "progressive",
         swipe: false,
         centerMode: true,
         infinite: false,
         arrows: false,
+        // fade: true,
         beforeChange: (current: number, next: number) => {
             if (mark === undefined) return;
             saveMark(giftStore.gifts[current], mark);
