@@ -29,10 +29,10 @@ const ListGift = observer(function (props) {
 
     let settings = {
         dots: false,
-        speed: 1500,
+        speed: 3000,
         slidesToShow: 1,
         slidesToScroll: 1,
-        lazyLoad: "progressive",
+        lazyLoad: "ondemand",
         swipe: false,
         centerMode: true,
         infinite: false,
